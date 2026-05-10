@@ -1,2 +1,10 @@
 # algotrading
 algotrading two cases. 
+
+This is for the trading algorithm I used in each case. 
+For the risk case, 
+It is an automated tender unwinding system designed to manage large positions after accepting institutional tenders. It continuously monitors tender offers and market conditions, then automatically reduces the resulting position using a two-phase execution strategy. In Phase 1, the algorithm prioritizes profitability by only trading at prices that preserve profit after commissions and safety buffers. It dynamically checks bid-ask spreads, market depth, and liquidity conditions to determine appropriate order sizes, execution speed, and slippage tolerance. 
+Next, If the position is not being reduced quickly enough or too much time passes, the system switches to Phase 2, where risk management becomes the priority and the bot aggressively flattens the position even if it sacrifices some profitability. The strategy therefore balances execution quality, liquidity awareness, and inventory risk control, which are all central challenges in market-making and tender arbitrage competitions. 
+
+For the second case, 
+This code implements an automated market-making strategy for th competition using the ticker ALGO. The bot continuously monitors the order book through a REST API and places both buy and sell limit orders around the current market price to capture bid-ask spread profits. It dynamically adjusts its quoted prices using volatility estimates, inventory position, and market spread conditions. The strategy widens quotes during volatile periods, skews prices to reduce excessive long or short inventory exposure, and automatically cancels and refreshes stale quotes to remain competitive in the order book. Position risk management is built in through inventory limits (MAX_ABS_POS) and emergency flattening logic that sends market orders if exposure becomes too large. The system also includes rate limiting, quote aging controls, adaptive sizing, and top-of-book price improvement logic to balance profitability, execution probability, and inventory stability in a high-frequency simulated trading environment. 
